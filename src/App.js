@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import { useState } from 'react'
+import Drawer from './components/drawer'
+import MainView from './components/mainView'
+import ContentView from './components/contentView'
 import './App.css';
 
-function App() {
+
+const App = () => {
+
+  const corsEnablingApiURL = 'https://cors-anywhere.herokuapp.com/';
+  const [ currentLocationData, setCurrentLocationData ] = useState(null)
+    const handleLocationData = (woeid) => {
+        console.log('locationWoeid', woeid);
+        fetch(`${corsEnablingApiURL}https://www.metaweather.com/api/location/${woeid}/`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => setCurrentLocationData(data))
+        .catch(error => console.log(error))
+        console.log('location data, ', currentLocationData);
+    }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App App-header">
+      <Drawer corsEnablingApiURL={corsEnablingApiURL} handleLocationData={handleLocationData}/>
+      <div className='pagesContainer'>
+        <MainView currentLocationData={currentLocationData} corsEnablingApiURL={corsEnablingApiURL}/>
+        <ContentView currentLocationData={currentLocationData}/>
+      </div>
     </div>
   );
 }
