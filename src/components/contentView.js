@@ -90,11 +90,14 @@ const ContentView = ({currentLocationData, temperatureSystem, velocitySystem}) =
             <div className='contentContainer'>
                 <h1 className='defaultTitle'>Important Anouncement</h1>
                 <h2 className='defaultSubtilte'>Global warming and climate change</h2>
+                <div className='defaultTextContainer'>
                 <p className='defaultText'>Global warming is the increase of Earth's average surface temperature due to greenhouse gases that collect in the atmosphere like a thickening blanket, trapping the sun's heat and causing the planet to warm up</p>
                 <p className='defaultText'>Greenhouse gases keep heat close to the earth’s surface making it livable for humans and animals. However, global warming is happening largely due to an over-emittance of these gases and fossil fuels (natural oil, gasoline, coal).</p>
                 <p className='defaultText'>Global climate change has already had observable effects on the environment. Glaciers have shrunk, ice on rivers and lakes is breaking up earlier, plant and animal ranges have shifted and trees are flowering sooner.</p>
                 <p className='defaultText'>Heat waves caused by global warming present greater risk of heat-related illness and death, most frequently among people who have diabetes who are elderly or are very young.</p>
                 <p className='defaultText'>Global warming puts coral reefs in danger as the ocean warms, scientist fear that coral reefs will not be able to adapt quickly enough to the resulting changing conditions, and bleaching incidents and diseases will increase</p>
+                </div>
+                <small className='footer'>Developed by Sebastian Toso (Don Toxo)</small>
             </div>
         )
     }
@@ -111,6 +114,7 @@ const ContentView = ({currentLocationData, temperatureSystem, velocitySystem}) =
                 <h2 style={{width: '80%',textAlign: 'left', marginLeft: '1rem'}}>Today's Hightlight</h2>
             </div>
             <div className='weekContainer'>{displayData()}</div>
+            <small className='footer'>Developed by Sebastian Toso (Don Toxo)</small>
         </div>
     )
 }

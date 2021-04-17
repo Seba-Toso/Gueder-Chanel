@@ -58,7 +58,6 @@ const App = () => {
         />
       </div>
 
-      <small className='footer'>Developed by Sebastian Toso (Don Toxo)</small>
     </div>
   );
 }

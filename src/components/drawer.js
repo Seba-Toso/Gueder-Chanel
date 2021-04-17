@@ -79,10 +79,10 @@ const Drawer = ({corsEnablingApiURL, handleLocationData, handleTemperatureSystem
         )
     }
 
-    const handleTemperatureSwitch = (e) => {
+    const handleTemperatureSwitch = () => {
         handleTemperatureSystem()
     }
-    const handleVelocitySwitch = (e) => {
+    const handleVelocitySwitch = () => {
         handleVelocitySystem()
     }
 
