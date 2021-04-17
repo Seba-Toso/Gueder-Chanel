@@ -4,13 +4,33 @@ import Card from './card'
 import ProgressBar from "@ramonak/react-progress-bar";
 import { IoMdNavigate } from 'react-icons/io'
 
-const ContentView = ({currentLocationData}) => {
+const ContentView = ({currentLocationData, temperatureSystem, velocitySystem}) => {
     let week = []
     if(currentLocationData){
         week = currentLocationData.consolidated_weather
         console.log(week[0].wind_direction.toFixed(0))
     }
 
+    const temperatureFormat = {
+        scale: !temperatureSystem? '°C' : '°F',
+        value: (temp) => {
+            return(
+            !temperatureSystem? 
+            temp.toFixed(1)
+            :
+            (((temp * 9)/5)+32).toFixed(2)
+        )}
+    }
+    const velocityFormat = {
+        scale: !velocitySystem? 'mph' : 'kmh',
+        value: (vel) => {
+            return(
+            !velocitySystem? 
+            vel.toFixed(1)
+            :
+            (vel * 1.61).toFixed(0)
+        )}
+    }
 
     const displayMoreDays = () => {
         return (
@@ -29,7 +49,9 @@ const ContentView = ({currentLocationData}) => {
                         />
                     </div>
                     <div className='dayMinMax'>
-                        <small>{data.min_temp.toFixed(1)}  {data.max_temp.toFixed(1)}</small>
+                        <small>{temperatureFormat.value(data.min_temp)+temperatureFormat.scale}</small>
+                         ● 
+                        <small>{temperatureFormat.value(data.max_temp)+temperatureFormat.scale}</small>
                     </div>
                 </Card>
             )
@@ -40,7 +62,7 @@ const ContentView = ({currentLocationData}) => {
             <React.Fragment>
             <div className='hightlightContainer'>
                 <p>Wind Status </p>
-                <div className='hightlightData'><h1>{week[0].wind_speed.toFixed(0)}</h1> <small>mph</small></div>
+                <div className='hightlightData'><h1>{velocityFormat.value(week[0].wind_speed)}</h1> <small>{velocityFormat.scale}</small></div>
                 <div className='hightlightData'>
                     <IoMdNavigate fontSize='18px' id='windDirection' style={{transform: `rotate(${week[0].wind_direction.toFixed(0)}deg)`}}/>
                     {week[0].wind_direction_compass}
@@ -53,7 +75,7 @@ const ContentView = ({currentLocationData}) => {
             </div>
             <div className='hightlightContainer'>
                 <p>Visibility</p>
-                <div className='hightlightData'><h1>{week[0].visibility.toFixed(1)}</h1> <small>milles</small></div>
+                <div className='hightlightData'><h1>{velocityFormat.value(week[0].visibility)}</h1> <small>{!velocitySystem? 'milles' : 'KM' }</small></div>
             </div>
             <div className='hightlightContainer'>
                 <p>Air Pressure</p>
@@ -76,6 +98,7 @@ const ContentView = ({currentLocationData}) => {
             </div>
         )
     }
+
     
     return week.length === 0?
     defaultContent()

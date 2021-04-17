@@ -22,14 +22,43 @@ const App = () => {
       .catch(error => console.log(error))
       console.log('location data, ', currentLocationData);
   }
+
+  const [ temperatureSystem, setTemperatureSystem ] = useState(false)
+  const [ velocitySystem, setVelocitySystem ] = useState(false)
+  const handleTemperatureSystem = (check) => {
+      console.log(check);
+      setTemperatureSystem(!temperatureSystem)
+  }
+  const handleVelocitySystem = () => {
+      console.log();
+      setVelocitySystem(!velocitySystem)
+  }
+
   
   return (
     <div className="App App-header">
-      <Drawer corsEnablingApiURL={corsEnablingApiURL} handleLocationData={handleLocationData} />
+      <Drawer 
+      corsEnablingApiURL={corsEnablingApiURL} 
+      handleLocationData={handleLocationData} 
+      handleTemperatureSystem={handleTemperatureSystem} 
+      handleVelocitySystem={handleVelocitySystem} 
+      temperatureSystem={temperatureSystem}
+      velocitySystem={velocitySystem}
+      />
+    
       <div className='pagesContainer'>
-        <MainView currentLocationData={currentLocationData} corsEnablingApiURL={corsEnablingApiURL}/>
-        <ContentView currentLocationData={currentLocationData} />
+        <MainView 
+        currentLocationData={currentLocationData} 
+        temperatureSystem={temperatureSystem}
+        velocitySystem={velocitySystem}
+        />
+        <ContentView 
+        currentLocationData={currentLocationData}
+        temperatureSystem={temperatureSystem}
+        velocitySystem={velocitySystem}
+        />
       </div>
+
       <small className='footer'>Developed by Sebastian Toso (Don Toxo)</small>
     </div>
   );

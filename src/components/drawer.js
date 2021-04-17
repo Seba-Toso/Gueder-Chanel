@@ -1,9 +1,10 @@
 // imports
 import React, {useState} from 'react'
 import * as Icon from 'react-icons/vsc'
+import Switch from "react-switch";
 
 
-const Drawer = ({corsEnablingApiURL, handleLocationData}) => {
+const Drawer = ({corsEnablingApiURL, handleLocationData, handleTemperatureSystem, temperatureSystem, handleVelocitySystem, velocitySystem}) => {
 
     const [ isOpen, setIsOpen ] = useState(false)
     let drawerPosition = `translateX(${isOpen? '100%' : '-100%'})`
@@ -60,7 +61,6 @@ const Drawer = ({corsEnablingApiURL, handleLocationData}) => {
     }
 
 
-
     const locationsList = () => {
         return(
             locationData.map( location => 
@@ -78,7 +78,17 @@ const Drawer = ({corsEnablingApiURL, handleLocationData}) => {
             )
         )
     }
-  
+
+    const handleTemperatureSwitch = (e) => {
+        console.log(e);
+        handleTemperatureSystem()
+    }
+    const handleVelocitySwitch = (e) => {
+        console.log(e);
+        handleVelocitySystem()
+    }
+
+
     return (
         <React.Fragment>
         <div className='headerContainer'>
@@ -88,17 +98,19 @@ const Drawer = ({corsEnablingApiURL, handleLocationData}) => {
             >
                 Search <Icon.VscSearch />
             </button>
-            <button 
-            onClick={handleGeolocation} 
-            className="headerBtn geoloc"
-            >
+            <div>
+                <button 
+                onClick={handleGeolocation} 
+                className="headerBtn geoloc"
+                >
                 <Icon.VscPerson/>
-            </button>
+                </button>
+            </div>
         </div>
         <div className='drawer' style={{transform: drawerPosition}}>
             <div className='headerContainer'>
                 <form className='searchInput' onSubmit={handleSearch}>
-                    <input placeholder={`search location`} value={inputLocation} onChange={handleInput} autoFocus={true} /> 
+                    <input placeholder={`search for a city`} value={inputLocation} onChange={handleInput} autoFocus={true} /> 
                     <button className="headerBtn search"><Icon.VscSearch/></button>
                 </form>
                 
@@ -108,6 +120,42 @@ const Drawer = ({corsEnablingApiURL, handleLocationData}) => {
                 >
                     <Icon.VscClose />
                 </button>
+            </div>
+            <div className='settings'>
+                <span>
+                    <p>°C </p>
+                    <Switch 
+                        onChange={handleTemperatureSwitch} 
+                        checked={temperatureSystem} 
+                        onColor="#86d3ff"
+                        onHandleColor="#2693e6"
+                        handleDiameter={25}
+                        uncheckedIcon={false}
+                        checkedIcon={false}
+                        height={20}
+                        width={48}
+                        className="react-switch"
+                        id="material-switch"
+                    />
+                    <p> °F</p>
+                </span>
+                <span>
+                    <p>mph </p>
+                    <Switch 
+                        onChange={handleVelocitySwitch} 
+                        checked={velocitySystem} 
+                        onColor="#86d3ff"
+                        onHandleColor="#2693e6"
+                        handleDiameter={25}
+                        uncheckedIcon={false}
+                        checkedIcon={false}
+                        height={20}
+                        width={48}
+                        className="react-switch"
+                        id="material-switch"
+                    />
+                    <p> km/h</p>
+                </span>
             </div>
             <br/>
             <ul className='drawerList'>

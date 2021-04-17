@@ -3,9 +3,8 @@ import React from 'react'
 import { VscLocation } from 'react-icons/vsc'
 
 
-const MainView = ({currentLocationData}) => {
-
-
+const MainView = ({currentLocationData, temperatureSystem, velocitySystem}) => {
+    
     let today = null
     let dayIcon = "-"
     if(currentLocationData){
@@ -26,6 +25,17 @@ const MainView = ({currentLocationData}) => {
             </React.Fragment>
         )
     }
+
+    const temperatureFormat = {
+        scale: !temperatureSystem? '°C' : '°F',
+        value: (temp) => {
+            return(
+            !temperatureSystem? 
+            temp.toFixed(1)
+            :
+            (((temp * 9)/5)+32).toFixed(2)
+        )}
+    }
     
     return currentLocationData === null || today === null ? 
         <div className='mainContainer'>
@@ -34,7 +44,7 @@ const MainView = ({currentLocationData}) => {
         : 
         <div className='mainContainer'>
             <div>{dayIcon}</div>
-            <div><h1>{today.the_temp.toFixed(1)}</h1> <p>°C</p></div>
+            <div><h1>{temperatureFormat.value(today.the_temp)}</h1> <p>{temperatureFormat.scale}</p></div>
             <div><strong>{today.weather_state_name}</strong></div>
             <div><span>Today</span> ● <span>{today.applicable_date}</span></div>
             <div><VscLocation fontSize={32} style={{verticalAlign: 'sub'}}/> <h2>{currentLocationData.title}</h2></div>
