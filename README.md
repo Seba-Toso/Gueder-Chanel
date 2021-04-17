@@ -58,6 +58,7 @@
   </li>
   <li>
     <h5><a href="https://github.com/Rob--W/cors-anywhere" title="https://github.com/Rob--W/cors-anywhere">Rob--W cors anywhere API</a> to do the requests.</h5>
+    <p>If you have an trouble accessing data, enter https://cors-anywhere.herokuapp.com/corsdemo and allow you pc to use the API</p>
   </li>
   <li>
     <h5><a href="https://www.metaweather.com/api/" title="https://www.metaweather.com/api/">Metaweather API</a> for getting the forecast.</h5>
