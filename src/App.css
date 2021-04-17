@@ -5,7 +5,7 @@ p {
 
 .App, .pagesContainer {
   text-align: center;
-  background-color: #282c34;
+  background: linear-gradient(45deg, #282c34, #181a2e);
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -69,7 +69,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba(30,33,58,0.8);
+  background: linear-gradient(-45deg, #379FFF, #4021FF);
 }
 .mainContainer div {
   margin: 1rem;
@@ -78,9 +78,17 @@ p {
   font-size: 6rem;
   display: inline-block;
 }
+.mainContainer h2 {
+  font-size: 2rem;
+  display: inline-block;
+  font-weight: lighter;
+}
 .mainContainer p {
   font-size: 2rem;
   display: inline-block;
+}
+.mainContainer span {
+  margin: 0 5px;
 }
 .contentContainer {
   height: 100%;
@@ -89,13 +97,10 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(16,14,29,1);
 }
-.contentContainer div {
-  margin: 0.5rem;
-}
+
 .cardContainer, .hightlightContainer {
-  background-color: rgba(30,33,58,0.8);
+  background: linear-gradient(45deg, #FB37FF, #3531FF);
   backdrop-filter: blur(10px);
   border-radius: 5px;
   width: min-content;
@@ -108,6 +113,7 @@ p {
   justify-content: space-evenly;
 }
 .hightlightContainer {
+  background: linear-gradient(45deg, #75ca78, #00BDBD);
   min-width: 15rem;
   max-width: 20rem;
   height: 70%;
@@ -118,6 +124,7 @@ p {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  margin: 0.5rem;
 }
 .openTab {
   color: #fafafa;
@@ -187,6 +194,7 @@ input {
 }
 .weekSubtitle {
   width: 80%;
+  margin: 0.5rem;
   margin-top: 4rem !important;
 }
 .dayimage, .dayTitle, .dayMinMax {
@@ -201,8 +209,38 @@ input {
   font-size: 3rem;
   font-family: 'Raleway';
 }
-.hightlightContainer div {
-  margin: 1rem 0;
+.hightlightData {
+  margin: 0.5rem;
+}
+.hightlightData svg {
+  vertical-align: sub;
+  font-size: 20px;
+  margin-right: 5px;
+}
+.humidityProgress {
+  width: 100%;
+}
+.defaultText {
+  width: 60%;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 1rem;
+}
+.defaultSubtilte {
+  font-size: 2rem;
+  font-weight: 400;
+  padding-bottom: 3rem;
+  width: 80%;
+}
+.defaultTitle {
+  font-size: 2.5rem;
+  width: 90%;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
 }
 
 
@@ -210,13 +248,14 @@ input {
   .pagesContainer {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
   }
   .mainContainer {
-    width: 40%;
+    width: 34%;
     display: inline-flex;
   }
   .contentContainer {
-    width: 80%;
+    width: 66%;
     height: 100vh;
     overflow: scroll;
   }
@@ -233,7 +272,22 @@ input {
   .weekImage {
     width: 7rem;
   }
-
+  .defaultText {
+    width: 60%;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .defaultSubtilte {
+    font-size: 3rem;
+    font-weight: 400;
+    padding-bottom: 3rem;
+    width: 60%;
+  }
+  .defaultTitle {
+    font-size: 5.5rem;
+    width: 85%;
+  }
 
 }
 
