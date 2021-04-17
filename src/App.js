@@ -50,7 +50,6 @@ const App = () => {
         <MainView 
         currentLocationData={currentLocationData} 
         temperatureSystem={temperatureSystem}
-        velocitySystem={velocitySystem}
         />
         <ContentView 
         currentLocationData={currentLocationData}

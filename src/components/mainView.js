@@ -3,7 +3,7 @@ import React from 'react'
 import { VscLocation } from 'react-icons/vsc'
 
 
-const MainView = ({currentLocationData, temperatureSystem, velocitySystem}) => {
+const MainView = ({currentLocationData, temperatureSystem}) => {
     
     let today = null
     let dayIcon = "-"

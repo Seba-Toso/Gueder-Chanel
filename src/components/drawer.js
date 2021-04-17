@@ -41,7 +41,7 @@ const Drawer = ({corsEnablingApiURL, handleLocationData, handleTemperatureSystem
     const handleGeolocation = () =>{
         const success = (pos) => {
             let {latitude, longitude} = pos.coords
-            console.log(latitude, longitude);
+            //console.log(latitude, longitude);
             fetch(`${corsEnablingApiURL}https://www.metaweather.com/api/location/search/?lattlong=${latitude.toFixed(2)},${longitude.toFixed(2)}`, {
             method: 'GET',
             headers: {
@@ -80,11 +80,9 @@ const Drawer = ({corsEnablingApiURL, handleLocationData, handleTemperatureSystem
     }
 
     const handleTemperatureSwitch = (e) => {
-        console.log(e);
         handleTemperatureSystem()
     }
     const handleVelocitySwitch = (e) => {
-        console.log(e);
         handleVelocitySystem()
     }
 
