@@ -3,8 +3,6 @@
 
 <h5>Hi there, I’m Sebastian!</h5>
 <h2>Welcome to this forecast project! 👉 Gueder Channel 👈</h2>
-<p>Your adventure begins here! After logging in (currently only with Google) you can enter the world of Pokémon!
-Find them, capture them, and save them to your Pokédex for later viewing.</p>
 
 <h4>You can even play with it</h4>
 <p>This project was deployed in Netlify 🙌. <a href="https://gueder-channel.netlify.app/" title="https://gueder-channel.netlify.app/">Here</a></p>
