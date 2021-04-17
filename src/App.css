@@ -170,6 +170,13 @@ p {
   background: none;
   border: none;
 }
+.geolocationText {
+  display: none;
+  font-style: italic;
+  font-size: 0.7rem;
+  color: #fafafa;
+  vertical-align: super;
+}
 .search {
   font-size: initial;
   margin: 0;
@@ -281,6 +288,13 @@ input::placeholder{
   }
 }
 
+@media only screen and (max-height: 768px) {
+  .contentContainer {
+    height: 90vh;
+  }
+}
+
+
 @media only screen and (min-width: 720px) {
   input {
     padding: 0.5rem;
@@ -291,6 +305,15 @@ input::placeholder{
   }
   .settings p {
     font-size: 17px;
+  }
+  .todayImage {
+    width: 45%;
+  }
+  .mainContainer div {
+    margin: 0;
+  }
+  .geolocationText {
+    display: initial;
   }
 }
 
@@ -307,7 +330,7 @@ input::placeholder{
   }
   .contentContainer {
     width: 66%;
-    height: 100vh;
+    height: 80vh;
     overflow: scroll;
     justify-content: flex-start;
   }
@@ -347,6 +370,9 @@ input::placeholder{
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+  .geolocationText {
+    color: rgb(123, 123, 119);;
   }
 
 }

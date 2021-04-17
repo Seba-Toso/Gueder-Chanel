@@ -8,7 +8,6 @@ const ContentView = ({currentLocationData, temperatureSystem, velocitySystem}) =
     let week = []
     if(currentLocationData){
         week = currentLocationData.consolidated_weather
-        console.log(week[0].wind_direction.toFixed(0))
     }
 
     const temperatureFormat = {

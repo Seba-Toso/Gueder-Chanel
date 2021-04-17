@@ -20,17 +20,17 @@ const App = () => {
       .then(response => response.json())
       .then(data => setCurrentLocationData(data))
       .catch(error => console.log(error))
-      console.log('location data, ', currentLocationData);
+      //console.log('location data, ', currentLocationData);
   }
 
   const [ temperatureSystem, setTemperatureSystem ] = useState(false)
   const [ velocitySystem, setVelocitySystem ] = useState(false)
   const handleTemperatureSystem = (check) => {
-      console.log(check);
+      //console.log(check);
       setTemperatureSystem(!temperatureSystem)
   }
   const handleVelocitySystem = () => {
-      console.log();
+      //console.log();
       setVelocitySystem(!velocitySystem)
   }
 

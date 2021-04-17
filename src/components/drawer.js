@@ -97,6 +97,7 @@ const Drawer = ({corsEnablingApiURL, handleLocationData, handleTemperatureSystem
                 Search <Icon.VscSearch />
             </button>
             <div>
+                <small className='geolocationText'>Get your current location forecast »</small>
                 <button 
                 onClick={handleGeolocation} 
                 className="headerBtn geoloc"
