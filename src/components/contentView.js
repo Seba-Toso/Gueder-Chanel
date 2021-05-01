@@ -88,8 +88,14 @@ const ContentView = ({currentLocationData, temperatureSystem, velocitySystem}) =
         return (
             <div className='contentContainer'>
                 <h1 className='defaultTitle'>Important Anouncement</h1>
-                <h2 className='defaultSubtilte'>Global warming and climate change</h2>
+                <p>To make this work (for now) you have to give permissions to you PC to get data from the API</p>
+                <p>
+                    Please enter <a href='https://cors-anywhere.herokuapp.com/corsdemo' target='_blank' rel='noreferrer'>
+                        here
+                    </a> and Request temporary access to the demo server"
+                </p>
                 <div className='defaultTextContainer'>
+                <h2 className='defaultSubtilte'>Global warming and climate change</h2>
                 <p className='defaultText'>Global warming is the increase of Earth's average surface temperature due to greenhouse gases that collect in the atmosphere like a thickening blanket, trapping the sun's heat and causing the planet to warm up</p>
                 <p className='defaultText'>Greenhouse gases keep heat close to the earth’s surface making it livable for humans and animals. However, global warming is happening largely due to an over-emittance of these gases and fossil fuels (natural oil, gasoline, coal).</p>
                 <p className='defaultText'>Global climate change has already had observable effects on the environment. Glaciers have shrunk, ice on rivers and lakes is breaking up earlier, plant and animal ranges have shifted and trees are flowering sooner.</p>

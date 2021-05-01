@@ -10,11 +10,11 @@ const App = () => {
   const corsEnablingApiURL = 'https://cors-anywhere.herokuapp.com/';
   const [ currentLocationData, setCurrentLocationData ] = useState(null)
   const handleLocationData = (woeid) => {
-      console.log('locationWoeid', woeid);
+      //console.log('locationWoeid', woeid);
       fetch(`${corsEnablingApiURL}https://www.metaweather.com/api/location/${woeid}/`, {
       method: 'GET',
       headers: {
-      'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       }
   })
       .then(response => response.json())
@@ -22,6 +22,7 @@ const App = () => {
       .catch(error => console.log(error))
       //console.log('location data, ', currentLocationData);
   }
+
 
   const [ temperatureSystem, setTemperatureSystem ] = useState(false)
   const [ velocitySystem, setVelocitySystem ] = useState(false)

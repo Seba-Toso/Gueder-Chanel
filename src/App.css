@@ -79,6 +79,7 @@ p {
 .mainContainer h1 {
   font-size: 6rem;
   display: inline-block;
+  margin: 0;
 }
 .mainContainer h2 {
   font-size: 2rem;
@@ -93,7 +94,6 @@ p {
   margin: 0 5px;
 }
 .contentContainer {
-  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -290,7 +290,7 @@ input::placeholder{
 
 @media only screen and (max-height: 768px) {
   .contentContainer {
-    height: 90vh;
+    height: initial;
   }
 }
 
